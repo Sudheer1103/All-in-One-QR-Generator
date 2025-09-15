@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Feature QRCode Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Full-width Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <button data-type="text" class="active">Text/URL</button>
+      <button data-type="wifi">Wi-Fi</button>
+      <button data-type="vcard">vCard</button>
+      <button data-type="email">Email</button>
+      <button data-type="sms">SMS</button>
+      <button data-type="payment">Payment</button>
+      <button data-type="event">Event</button>
+    </div>
+  </nav>
+
+  <!-- QR Container -->
+  <div class="container">
+    <div class="QR">
+      <h2 id="qrTitle">Text / URL QR Generator</h2>
+
+      <!-- Dynamic Input Fields -->
+      <div id="qrInputs" class="inputs">
+        <input type="text" id="qrText" placeholder="Enter text or URL">
+      </div>
+
+      <!-- QR Options -->
+      <div class="options">
+        <label>Size:</label>
+        <select id="qrSize">
+          <option value="150x150">Small (150×150)</option>
+          <option value="300x300" selected>Medium (300×300)</option>
+          <option value="500x500">Large (500×500)</option>
+        </select>
+
+        <label>Color:</label>
+        <input type="color" id="qrColor" value="#000000">
+
+        <label>Background:</label>
+        <input type="color" id="qrBg" value="#ffffff">
+      </div>
+
+      <!-- QR Preview -->
+      <div id="imgBox">
+        <img src="" id="qrImage">
+      </div>
+
+      <button id="generateBtn">Generate QR Code</button>
+      <button id="downloadBtn">Download QR</button>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
