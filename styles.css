@@ -1,7 +1,8 @@
+/* ---------- RESET ---------- */
 * {
   margin: 0;
   padding: 0;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
   box-sizing: border-box;
 }
 
@@ -13,26 +14,59 @@ body {
   color: #333;
 }
 
-/* Navbar */
+/* ---------- NAVBAR ---------- */
 .navbar {
   width: 100%;
   background: #494eea;
-  padding: 12px 0;
+  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .navbar .nav-inner {
   max-width: 1200px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* spread left and right */
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  padding: 0 20px;
 }
 
+/* Navbar Title */
+.nav-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none; /* remove underline */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.nav-title:hover {
+  transform: scale(1.05);
+}
+
+.nav-title .highlight {
+  color: #ffd54f;
+}
+
+.nav-title .brand-icon {
+  font-size: 22px;
+  color: #ffd54f;
+}
+
+.nav-title .bold {
+  color: #fff;
+}
+
+/* Navbar Buttons (QR tools) */
 .navbar button {
   background: transparent;
   border: none;
@@ -51,7 +85,26 @@ body {
   color: #494eea;
 }
 
-/* Main container */
+/* Navbar link styled as button (Home → Generate QR) */
+.btn-nav {
+  text-decoration: none;
+  background: #fff;
+  color: #494eea;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-nav:hover {
+  background: #ffd54f;
+  color: #1f1f47;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ---------- CONTAINER ---------- */
 .container {
   flex: 1;
   display: flex;
@@ -60,36 +113,47 @@ body {
   padding: 30px;
 }
 
-/* QR Card */
+/* ---------- QR CARD ---------- */
 .QR {
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   padding: 30px;
   width: 100%;
   max-width: 650px;
   text-align: center;
   overflow-y: auto;
   max-height: 90vh;
+  animation: fadeIn 0.5s ease;
 }
 
 .QR h2 {
   margin-bottom: 20px;
+  font-size: 22px;
+  color: #494eea;
 }
 
-/* Inputs */
+/* ---------- INPUTS ---------- */
 .inputs input,
 .inputs select {
   width: 100%;
   height: 45px;
   border: 2px solid #494eea;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 10px;
+  padding: 8px 12px;
   margin: 8px 0;
-  font-size: 14px;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
-/* Options */
+.inputs input:focus,
+.inputs select:focus {
+  border-color: #ffd54f;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 213, 79, 0.6);
+}
+
+/* ---------- OPTIONS ---------- */
 .options {
   text-align: left;
   margin: 15px 0;
@@ -99,40 +163,48 @@ body {
 .options label {
   display: block;
   margin: 8px 0 4px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #494eea;
 }
 
 .options select,
 .options input[type="color"] {
   width: 100%;
-  height: 40px;
+  height: 42px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 10px;
   padding: 5px;
   cursor: pointer;
 }
 
-/* Button */
-.QR button {
+/* ---------- BUTTONS ---------- */
+.QR button,
+#downloadBtn,
+.btn-start {
   width: 100%;
   height: 50px;
-  background: #494eea;
+  background: linear-gradient(135deg, #494eea, #6a74ff);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  margin-top: 20px;
+  border-radius: 12px;
+  margin-top: 18px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(73, 78, 234, 0.3);
 }
 
-.QR button:hover {
-  background: #3b3fc1;
+.QR button:hover,
+#downloadBtn:hover,
+.btn-start:hover {
+  background: linear-gradient(135deg, #3b3fc1, #565dff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(73, 78, 234, 0.4);
 }
 
-/* QR Preview */
+/* ---------- QR PREVIEW ---------- */
 #imgBox {
   display: flex;
   justify-content: center;
@@ -144,23 +216,72 @@ body {
   display: block;
   margin: auto;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-#downloadBtn {
-    width: 100%;
-    height: 50px;
-    background: #3b3fc1;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s ease;
+/* ---------- HOME PAGE ---------- */
+.home-section {
+  text-align: left;
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+  max-width: 750px;
+  margin: 50px auto;
+  animation: fadeInUp 0.6s ease;
 }
 
-#downloadBtn:hover {
-    background: #2e318f;
+.home-section h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #494eea;
+}
+
+.home-section p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.home-section ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.home-section li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Fancy Start Button */
+.btn-start {
+  display: inline-block;
+  width: auto;
+  padding: 14px 35px;
+  font-size: 17px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #494eea, #6a74ff);
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(73, 78, 234, 0.35);
+}
+
+.btn-start:hover {
+  background: linear-gradient(135deg, #3b3fc1, #5a60e6);
+  box-shadow: 0 10px 25px rgba(73, 78, 234, 0.45);
+  transform: translateY(-3px);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

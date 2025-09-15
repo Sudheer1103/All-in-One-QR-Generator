@@ -23,10 +23,19 @@ document.querySelectorAll(".navbar button").forEach(btn => {
 });
 
 // Load input fields based on type
+// Load input fields based on type
 function loadInputs(type) {
-  qrInputs.innerHTML = "";
+  qrInputs.innerHTML = "";       // Clear the dynamic fields
+  qrTitle.textContent = "";      // Reset title
+
+  // ✅ Reset options (size, color, background)
+  qrSize.value = "300x300";      // default: Medium
+  qrColor.value = "#000000";     // default: Black
+  qrBg.value = "#ffffff";        // default: White
+
+  // ✅ Reset QR preview
   imgBox.classList.remove("show-img");
-  qrImage.src = "";   // Clear old QR
+  qrImage.src = "";
 
   switch(type) {
     case "text":
@@ -98,6 +107,7 @@ function loadInputs(type) {
       break;
   }
 }
+
 
 // Payment input fields
 function loadPaymentFields(type) {
