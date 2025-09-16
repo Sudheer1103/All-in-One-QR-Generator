@@ -3,64 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-Feature QRCode Generator</title>
+  <title>QR Genie</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Full-width Navigation -->
+  <!-- Navbar -->
   <nav class="navbar">
-  <div class="nav-inner">
-    <a href="home.html" class="nav-title">✨ <span class="bold">QR</span> <span class="highlight">Genie</span></a>
-    <button data-type="text" class="active">Text/URL</button>
-    <button data-type="wifi">Wi-Fi</button>
-    <button data-type="vcard">vCard</button>
-    <button data-type="email">Email</button>
-    <button data-type="sms">SMS</button>
-    <button data-type="payment">Payment</button>
-    <button data-type="event">Event</button>
-  </div>
-</nav>
-
-
-
-  <!-- QR Container -->
-  <div class="container">
-    <div class="QR">
-      <h2 id="qrTitle">Text / URL QR Generator</h2>
-
-      <!-- Dynamic Input Fields -->
-      <div id="qrInputs" class="inputs">
-        <input type="text" id="qrText" placeholder="Enter text or URL">
+    <div class="nav-inner">
+      <div class="nav-title">
+        <span class="brand-icon">🔗</span>
+        <span class="bold">QR</span><span class="highlight">Genie</span>
       </div>
-
-      <!-- QR Options -->
-      <div class="options">
-        <label>Size:</label>
-        <select id="qrSize">
-          <option value="150x150">Small (150×150)</option>
-          <option value="300x300" selected>Medium (300×300)</option>
-          <option value="500x500">Large (500×500)</option>
-        </select>
-
-        <label>Color:</label>
-        <input type="color" id="qrColor" value="#000000">
-
-        <label>Background:</label>
-        <input type="color" id="qrBg" value="#ffffff">
-      </div>
-
-      <!-- QR Preview -->
-      <div id="imgBox">
-        <img src="" id="qrImage">
-      </div>
-
-      <button id="generateBtn">Generate QR Code</button>
-      <button id="downloadBtn">Download QR</button>
-
+      <a href="QR.html" class="btn-nav">Go to Generator</a>
     </div>
-  </div>
+  </nav>
 
-  <script src="script.js"></script>
+  <!-- Home Section -->
+  <section class="home-section">
+    <!-- Left content -->
+    <div class="home-left">
+      <h2>Generate <span>QR Codes</span> Instantly</h2>
+      <p>
+        Create beautiful, customizable, and high-quality QR codes for your
+        business, events, or personal use in just seconds.
+      </p>
+      <ul class="features">
+        <li>Custom colors & sizes</li>
+        <li>High quality downloads</li>
+        <li>Works on all devices</li>
+      </ul>
+      <a href="QR.html" class="btn-start">🚀 Start Generating</a>
+    </div>
+
+    <!-- Right illustration -->
+    <!-- Right illustration -->
+<div class="home-right">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Welcome+to+QR+Genie" alt="QR Preview">
+</div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">🔗</span>
+        <span class="bold">QR</span><span class="highlight">Genie</span>
+        <p>Create your QR codes with style ✨</p>
+      </div>
+      <div class="footer-copy">
+        <p>© 2025 QR Genie. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
