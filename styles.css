@@ -29,7 +29,7 @@ body {
   max-width: 1200px;
   margin: auto;
   display: flex;
-  justify-content: space-between; /* spread left and right */
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 0 20px;
@@ -40,7 +40,7 @@ body {
   font-size: 26px;
   font-weight: 800;
   color: #fff;
-  text-decoration: none; /* remove underline */
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -62,11 +62,7 @@ body {
   color: #ffd54f;
 }
 
-.nav-title .bold {
-  color: #fff;
-}
-
-/* Navbar Buttons (QR tools) */
+/* Navbar Buttons (tool switchers) */
 .navbar button {
   background: transparent;
   border: none;
@@ -87,82 +83,150 @@ body {
 
 /* Navbar link styled as button (Home → Generate QR) */
 .btn-nav {
+  display: inline-block;
   text-decoration: none;
-  background: #fff;
-  color: #494eea;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffd54f, #ffb300);
+  color: #1f1f47;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .btn-nav:hover {
-  background: #ffd54f;
-  color: #1f1f47;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #ffb300, #ff9800);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
-/* ---------- CONTAINER ---------- */
+/* ---------- HOME PAGE (Full Landing Style) ---------- */
+.home-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* center content */
+  background: linear-gradient(135deg, #494eea, #1f1f47);
+  color: #fff;
+  padding: 80px 10%;
+  text-align: center;
+  min-height: calc(100vh - 70px);
+  animation: fadeInUp 0.6s ease;
+}
+
+.home-section h2 {
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffd54f;
+}
+
+.home-section p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 700px;
+  color: #f1f1f1;
+}
+
+.home-section ul {
+  margin-left: 20px;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #e0e0e0;
+  text-align: left;
+}
+
+.home-section li {
+  margin-bottom: 10px;
+}
+
+/* Hero CTA Button */
+.btn-start {
+  display: inline-block;
+  padding: 18px 50px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ffd54f, #ff9800);
+  color: #1f1f47;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  margin: 30px auto 0;
+  text-align: center;
+}
+
+.btn-start:hover {
+  background: linear-gradient(135deg, #ffb300, #ff6f00);
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
+
+/* ---------- QR GENERATOR PAGE ---------- */
 .container {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 40px;
+  background: linear-gradient(135deg, #1f1f47, #494eea);
 }
 
-/* ---------- QR CARD ---------- */
 .QR {
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  padding: 35px;
   width: 100%;
   max-width: 650px;
   text-align: center;
-  overflow-y: auto;
-  max-height: 90vh;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.6s ease;
 }
 
 .QR h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
   color: #494eea;
 }
 
-/* ---------- INPUTS ---------- */
+/* Inputs & Dropdowns */
 .inputs input,
 .inputs select {
   width: 100%;
-  height: 45px;
-  border: 2px solid #494eea;
-  border-radius: 10px;
-  padding: 8px 12px;
-  margin: 8px 0;
+  height: 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 10px 0;
   font-size: 15px;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .inputs input:focus,
 .inputs select:focus {
-  border-color: #ffd54f;
+  border-color: #494eea;
+  box-shadow: 0 0 8px rgba(73, 78, 234, 0.3);
   outline: none;
-  box-shadow: 0 0 6px rgba(255, 213, 79, 0.6);
 }
 
-/* ---------- OPTIONS ---------- */
+/* Options Section */
 .options {
   text-align: left;
-  margin: 15px 0;
+  margin: 20px 0;
   font-size: 14px;
 }
 
 .options label {
   display: block;
-  margin: 8px 0 4px;
+  margin: 10px 0 5px;
   font-weight: 600;
   color: #494eea;
 }
@@ -170,109 +234,55 @@ body {
 .options select,
 .options input[type="color"] {
   width: 100%;
-  height: 42px;
+  height: 45px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
   padding: 5px;
   cursor: pointer;
 }
 
-/* ---------- BUTTONS ---------- */
+/* Buttons */
 .QR button,
-#downloadBtn,
-.btn-start {
+#downloadBtn {
   width: 100%;
-  height: 50px;
-  background: linear-gradient(135deg, #494eea, #6a74ff);
-  color: #fff;
+  height: 55px;
+  background: linear-gradient(135deg, #ffd54f, #ff9800);
+  color: #1f1f47;
   border: none;
-  border-radius: 12px;
-  margin-top: 18px;
-  font-weight: 600;
-  font-size: 16px;
+  border-radius: 14px;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 17px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(73, 78, 234, 0.3);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
 }
 
 .QR button:hover,
-#downloadBtn:hover,
-.btn-start:hover {
-  background: linear-gradient(135deg, #3b3fc1, #565dff);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(73, 78, 234, 0.4);
+#downloadBtn:hover {
+  background: linear-gradient(135deg, #ffb300, #ff6f00);
+  color: #fff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
 }
 
-/* ---------- QR PREVIEW ---------- */
+/* QR Preview Box */
 #imgBox {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 25px auto;
+  padding: 15px;
+  border-radius: 14px;
+  background: #f9f9f9;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
 }
 
 #imgBox img {
   display: block;
-  margin: auto;
-  padding: 10px;
+  max-width: 100%;
   border-radius: 10px;
-  background: #f9f9f9;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ---------- HOME PAGE ---------- */
-.home-section {
-  text-align: left;
-  background: #fff;
-  border-radius: 18px;
-  padding: 40px;
-  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
-  max-width: 750px;
-  margin: 50px auto;
-  animation: fadeInUp 0.6s ease;
-}
-
-.home-section h2 {
-  margin-bottom: 20px;
-  font-size: 26px;
-  color: #494eea;
-}
-
-.home-section p {
-  margin-bottom: 15px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-}
-
-.home-section ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.home-section li {
-  margin-bottom: 10px;
-  font-size: 15px;
-  color: #555;
-}
-
-/* Fancy Start Button */
-.btn-start {
-  display: inline-block;
-  width: auto;
-  padding: 14px 35px;
-  font-size: 17px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #494eea, #6a74ff);
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(73, 78, 234, 0.35);
-}
-
-.btn-start:hover {
-  background: linear-gradient(135deg, #3b3fc1, #5a60e6);
-  box-shadow: 0 10px 25px rgba(73, 78, 234, 0.45);
-  transform: translateY(-3px);
 }
 
 /* ---------- ANIMATIONS ---------- */
@@ -284,4 +294,167 @@ body {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- HOME PAGE (New Modern Style) ---------- */
+.home-section {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  background: linear-gradient(135deg, #1f1f47, #494eea);
+  color: #fff;
+  padding: 80px 10%;
+  min-height: calc(100vh - 70px);
+  animation: fadeInUp 0.6s ease;
+}
+
+.home-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-left h2 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.home-left h2 span {
+  color: #ffd54f;
+}
+
+.home-left p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e0e0e0;
+  max-width: 600px;
+}
+
+.features {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #f1f1f1;
+}
+
+.features li::before {
+  content: "✔";
+  color: #ffd54f;
+  font-weight: bold;
+}
+
+/* Right side (illustration/preview) */
+.home-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-right img {
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* CTA Button */
+.btn-start {
+  display: inline-block;
+  padding: 18px 50px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ffd54f, #ff9800);
+  color: #1f1f47;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-start:hover {
+  background: linear-gradient(135deg, #ffb300, #ff6f00);
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #1f1f47;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+}
+
+.footer-brand {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #ccc;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #ffd54f;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff9800;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #aaa;
+}
+/* Home right illustration */
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-right img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  background: #fff;
+  padding: 15px;
 }
